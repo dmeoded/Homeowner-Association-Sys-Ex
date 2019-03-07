@@ -1,0 +1,32 @@
+[
+    {
+        "id": "1",
+        "fullName": "Dana Meoded",
+        "email": "dana@dana.com",
+        "pwd": "123",
+        "aptNo": "13",
+        "flr": "4",
+        "isCommitteeMember": true,
+        "communityId": "1"
+    },
+    {
+        "id": "1",
+        "fullName": "Nir Channes",
+        "email": "nir@nir.com",
+        "pwd": "123",
+        "aptNo": "2",
+        "flr": "1",
+        "isCommitteeMember": false,
+        "communityId": "1"
+    },
+    {
+        "id": "1",
+        "fullName": "John John",
+        "email": "john@john.com",
+        "pwd": "456",
+        "aptNo": "2",
+        "flr": "1",
+        "isCommitteeMember": false,
+        "communityId": "2"
+    }
+]
