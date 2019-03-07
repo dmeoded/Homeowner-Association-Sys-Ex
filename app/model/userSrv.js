@@ -29,7 +29,7 @@ app.factory("userSrv", function($http, $q, $log) {
             }
 
             if (!activeUser) {
-                console.log ("The active user in lop - invalid:" + JSON.stringify(activeUser));
+                console.log ("The active user in lop - invalid!");
 
                 async.reject("");
             }
