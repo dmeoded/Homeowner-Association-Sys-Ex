@@ -1,6 +1,6 @@
-app.controller("navbarCtrl", function($scope,  $location) {
+app.controller("navbarCtrl", function($scope, userSrv, $location) {
 
-    // userSrv,
+
     // $scope.isUserLoggedIn = function() {
     //     return userSrv.isLoggedIn();
     // }
