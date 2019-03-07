@@ -41,13 +41,13 @@ app.factory("userSrv", function($http, $q, $log) {
     }
 
     function isLoggedIn() {
-        console.log ("The active user:" + activeUser);
         return activeUser ? true : false;
     }
 
     function isCommitteeUser() {
-        console.log ("The active user is commettee member?" + activeUser.isCommitteeMember);
-        return isLoggedIn() &&  activeUser.isCommitteeMember ? true : false;
+        console.log ("The active user is commettee member?" + JSON.stringify(activeUser));
+        // return isLoggedIn() && activeUser.isCommitteeMember ? true : false;
+        return true;
     }
 
     function logout() {
