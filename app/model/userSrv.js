@@ -42,10 +42,13 @@ app.factory("userSrv", function($http, $q, $log) {
 
     function isLoggedIn() {
         console.log ("The active user:" + activeUser);
-
         return activeUser ? true : false;
     }
 
+    function isCommitteeUser() {
+        console.log ("The active user is commettee member?" + activeUser.isCommitteeMember);
+        return activeUser.isCommitteeMember;
+    }
     function logout() {
         activeUser = null;
     }
@@ -58,7 +61,8 @@ app.factory("userSrv", function($http, $q, $log) {
         login: login,
         isLoggedIn: isLoggedIn,
         logout: logout,
-        getActiveUser: getActiveUser
+        getActiveUser: getActiveUser,
+        isCommitteeUser: isCommitteeUser
     }
 
 });
