@@ -47,8 +47,9 @@ app.factory("userSrv", function($http, $q, $log) {
 
     function isCommitteeUser() {
         console.log ("The active user is commettee member?" + activeUser.isCommitteeMember);
-        return activeUser.isCommitteeMember;
+        return isLoggedIn() &&  activeUser.isCommitteeMember ? true : false;
     }
+
     function logout() {
         activeUser = null;
     }

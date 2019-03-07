@@ -25,7 +25,7 @@ app.config(function ($routeProvider) {
         templateUrl: "app/voting/voting.html"
   
     }).when("/newTenant" , {
-        templateUrl: "app//tenants//newTenant.html"
+        templateUrl: "app//tenants/newTenant.html"
 
     }).otherwise({
         redirectTo: "/"
