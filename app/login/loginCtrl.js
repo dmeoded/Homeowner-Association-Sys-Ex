@@ -8,11 +8,11 @@ app.controller("loginCtrl", function($scope, $location, userSrv) {
 
     $scope.login = function() {
 
-        // userSrv.login($scope.email, $scope.pwd).then(function(activeUser) {
-        //     $location.path("/dashboard");
-        // }, function() {
-        //     $scope.invalidLogin = true;
-        // });
+        userSrv.login($scope.email, $scope.pwd).then(function(activeUser) {
+            $location.path("/dashboard");
+        }, function() {
+            $scope.invalidLogin = true;
+        });
 
     }
 
