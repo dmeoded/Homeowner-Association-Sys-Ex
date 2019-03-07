@@ -12,7 +12,20 @@ app.config(function ($routeProvider) {
     }).when("/dashboard", {
         templateUrl: "app/dashboard/dashboard.html"
 
+    }).when("/tenants", {
+        templateUrl: "app/tenants/tenants.html"
+
+    }).when("/messages", {
+        templateUrl: "app/messages/messages.html"
+ 
+    }).when("/issues", {
+        templateUrl: "app/issues/issues.html"
+ 
+    }).when("/voting", {
+        templateUrl: "app/voting/voting.html"
+  
     }).when("/newTenant" , {
+        templateUrl: "app//tenants//newTenant.html"
 
     }).otherwise({
         redirectTo: "/"
