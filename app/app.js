@@ -10,7 +10,8 @@ app.config(function ($routeProvider) {
     }).when("/signup", {
 
     }).when("/dashboard", {
-        templateUrl: "app/dashboard/dashboard.html"
+        templateUrl: "app/dashboard/dashboard.html",
+        controller: "dashboardCtrl"
 
     }).when("/tenants", {
         templateUrl: "app/tenants/tenants.html"

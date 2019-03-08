@@ -56,13 +56,18 @@ app.factory("userSrv", function($http, $q, $log) {
     function getActiveUser() {
         return activeUser;
     }
+    
+    function getUserFullNme() {
+        return activeUser.fullName;
+    }
 
     return {
         login: login,
         isLoggedIn: isLoggedIn,
         logout: logout,
         getActiveUser: getActiveUser,
-        isCommitteeUser: isCommitteeUser
+        isCommitteeUser: isCommitteeUser,
+        getUserFullNme: getUserFullNme
     }
 
 });
