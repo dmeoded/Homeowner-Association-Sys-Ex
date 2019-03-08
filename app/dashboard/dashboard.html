@@ -1,4 +1,7 @@
 <hoa-navbar></hoa-navbar>
 
-<h1 class="test">{{activeUser.fullName}}'s Dashboard - hello</h1>
-<P> Are you committe member? {{activeUser.isCommitteeMember}} </P>
+<h4 class="test">{{activeUser.fullName}}'s Dashboard - hello  <span ng-show="isCommitteeUser()"> 
+    Committee Member </span> <span ng-show="!isCommitteeUser()"> Regular Tenant </span>
+
+</h4>
+
