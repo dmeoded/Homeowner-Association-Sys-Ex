@@ -4,7 +4,7 @@ var app = angular.module("hoaSystem", ["ngRoute"]);
 app.config(function ($routeProvider) {
     $routeProvider.when("/", {
         templateUrl: "app/home/home.html"
-        
+
     }).when("/login", {
         templateUrl: "app/login/login.html",
         controller: "loginCtrl"
@@ -20,7 +20,8 @@ app.config(function ($routeProvider) {
         templateUrl: "app/tenants/tenants.html"
 
     }).when("/messages", {
-        templateUrl: "app/messages/messages.html"
+        templateUrl: "app/messages/messages.html",
+        controller: "messageCtrl"
 
     }).when("/issues", {
         templateUrl: "app/issues/issues.html"
