@@ -50,7 +50,7 @@
     }
     
     $scope.addMsg = function() {
-    //   msgsrv.addMsg("Subaru", "B4");
+      msgSrv.addMsg("Subaru", "B4");
     }
     
     $scope.openMsg = function(message) {
