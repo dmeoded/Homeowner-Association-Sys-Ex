@@ -30,7 +30,11 @@ app.config(function ($routeProvider) {
         templateUrl: "app/voting/voting.html"
 
     }).when("/newTenant", {
-        templateUrl: "app//tenants/newTenant.html"
+        templateUrl: "app/tenants/newTenant.html"
+
+    }).when("/messages/:msgId", {
+        templateUrl: "app/messages/messageDetail.html",
+        controller: "messageDetailCtrl"
 
     }).otherwise({
         redirectTo: "/"
