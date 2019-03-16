@@ -55,7 +55,7 @@ app.factory("msgSrv", function($log, $http, $q) {
       // Making sure that the messages are loaded
       getMsgs().then(function(messages) {
         async.resolve(messages[id]);  
-        console.log("current message:" + JSON.stringify(messages[id]));
+        console.log("current message from Srv:" + JSON.stringify(messages[id]));
       }, function(err) {
         async.reject(err);
       });
