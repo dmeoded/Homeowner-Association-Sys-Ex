@@ -1,5 +1,23 @@
 <hoa-navbar></hoa-navbar>
 
-<hoa-message></hoa-message>
-
-<h1> My Messages</h1>
+<main class="container">
+    <h1 class="display-1">Messages</h1>
+    <p class="text-center py-5" ng-show="messages.length === 0">There are no messages</p>
+    <div ng-show="messages.length > 0">
+        <input class="form-control my-3" placeholder="Filter Messages by Title or Commemt" ng-model="filterBy">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th ng-click="orderByProp('title')">Title <i class="fas" ng-class="{'fa-sort' : orderProp != 'brand', 'fa-sort-down' : orderProp === 'brand' && !reverseOrder, 'fa-sort-up' : orderProp === 'brand' && reverseOrder}"></i></th>
+                <th ng-click="orderByProp('prio')">Priority <i class="fas" ng-class="{'fa-sort' : orderProp != 'model', 'fa-sort-down' : orderProp === 'model' && !reverseOrder, 'fa-sort-up' : orderProp === 'model' && reverseOrder}"></i></th>
+            </tr>
+            <tr ng-repeat="message in messages | filter : filterMsg | orderBy: orderProp : reverseOrder" ng-click="selectMsg(message)"
+                ng-class="{'bg-info' : message === selectedMsg}" ng-dblclick="openMsg(message)">
+                <td>{{$index + 1}}</td>
+                <td>{{message.title}}</td>
+                <td>{{message.prio| number}}</td>
+            </tr>
+        </table>
+        <button class="btn btn-primary" ng-click="addMsg()">Add New Message</button>
+    </div>
+</main>
