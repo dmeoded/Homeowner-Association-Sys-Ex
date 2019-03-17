@@ -7,6 +7,6 @@
         <p>Priority: {{message.prio}}</p>
         <p>Files: {{message.file}}</p>
         <p>Created By: {{message.createdBy}}</p>
-        <p>Created At: {{message.createdAt}}</p>
+        <p>Created At: {{message.createdAt | date}}</p>
 </div>
 <button class="btn btn-primary" ng-click="replyMsg()">Reply Message</button>
