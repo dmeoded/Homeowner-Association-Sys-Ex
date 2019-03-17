@@ -1,9 +1,15 @@
-app.controller("messageDetailCtrl", function($scope, msgSrv, $routeParams) {
-  
-  
-    msgSrv.getMsgById($routeParams.msgId).then(function(message) {
-      $scope.message = message;
-      console.log("current message from Ctrl:", message);
-    })
-    
+app.controller("messageDetailCtrl", function ($scope, msgSrv, userSrv,  $routeParams, $location) {
+
+  if (!userSrv.isLoggedIn()) {
+    $location.path("/");
+    return;
+  }
+
+  $scope.activeUser = userSrv.getActiveUser();
+
+  msgSrv.getMsgById($routeParams.msgId).then(function (message) {
+    $scope.message = message;
+    console.log("current message from Ctrl:", message);
   })
+
+})
