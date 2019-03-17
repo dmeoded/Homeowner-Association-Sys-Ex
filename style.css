@@ -1,7 +1,18 @@
+label {
+    user-select: none;
+  }
+  
+  input:invalid {
+    border-color: red;
+  }
+
 .login {
     max-width: 500px;
 }
 
-.test {
+.greeting {
     color: blue;
+    background-color: rgb(202, 199, 199);
+    /* margin: 5px; */
+    font-size: 18px;
 }
