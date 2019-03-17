@@ -1,5 +1,5 @@
 
-    app.controller("messageCtrl", function($scope, $http, $location, $log, msgSrv, userSrv ) {
+    app.controller("messageCtrl", function($scope, $http, $location, $log, msgSrv, userSrv, genSrv ) {
     
   
     // Loading the messages
@@ -49,8 +49,9 @@
     //   $log.info("The selected message is: " + $scope.selectedMsg.title);
     }
     
+    $scope.showNewMsg = false;
     $scope.addMsg = function() {
-      msgSrv.addMsg("Subaru", "B4");
+      $scope.showNewMsg = true;
     }
     
     $scope.openMsg = function(message) {

@@ -1,5 +1,5 @@
 
-app.factory("msgSrv", function($log, $http, $q) {
+app.factory("msgSrv", function($log, $http, $q, genSrv, userSrv) {
 
     var messages = [];
     var wasEverLoaded = false;
@@ -41,13 +41,14 @@ app.factory("msgSrv", function($log, $http, $q) {
     function createMessage(title, comment, prio) {
       var async = $q.defer();
       
-      var activeUserId = "dana" //userSrv.getActiveUser().id;
-      var newMessageId = "3dddd";  // the id should be unique
+      var activeUserId = "dana"; //userSrv.getActiveUser().id;
+      var newMessageId = genSrv.makeId(8);  // the id should be unique
       var newMessageObject = {
           id: newMessageId,
+          prio: prio, 
           title: title, 
           comment: comment,
-          createdAt: "1335207592410",
+          createdAt: new Date().getTime(),
           createdBy: activeUserId
       }
       var newMessage = new Message(newMessageObject);
@@ -77,7 +78,6 @@ app.factory("msgSrv", function($log, $http, $q) {
         getMsgs: getMsgs,
         createMessage: createMessage,
         getMsgById: getMsgById  
-    
     }
     
   });

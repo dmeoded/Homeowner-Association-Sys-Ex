@@ -6,6 +6,7 @@ app.controller("newMessageCtrl", function($scope, msgSrv, $location, $log) {
         // call service createMessage
         msgSrv.createMessage($scope.title, $scope.comment, $scope.prio).then(function() {
             $location.path("/messages");
+            $scope.showNewMsg = false;
         }, function(err) {
             $log.error(err);
         })
