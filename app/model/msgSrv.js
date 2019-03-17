@@ -38,16 +38,25 @@ app.factory("msgSrv", function($log, $http, $q) {
     }    
     
     
-    function addMsg(MsgObject) {
+    function createMessage(title, comment, prio) {
       var async = $q.defer();
       
-      var newMsg = new Message(MsgObject);
-      messages.push(newMsg);
-      async.resolve(newMsg);
-    
+      var activeUserId = "dana" //userSrv.getActiveUser().id;
+      var newMessageId = "3dddd";  // the id should be unique
+      var newMessageObject = {
+          id: newMessageId,
+          title: title, 
+          comment: comment,
+          createdAt: "1335207592410",
+          createdBy: activeUserId
+      }
+      var message = new message(newMessageObject);
+      messages[activeUserId].push(newMessage);
+      async.resolve(newMessage, messages[activeUserId]);
+
       return async.promise;
-    }
-    
+  }
+
     
     function getMsgById(id) {
       var async = $q.defer();
@@ -66,7 +75,7 @@ app.factory("msgSrv", function($log, $http, $q) {
     
     return {
         getMsgs: getMsgs,
-        addMsg: addMsg,
+        createMessage: createMessage,
         getMsgById: getMsgById  
     
     }
