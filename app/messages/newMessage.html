@@ -8,21 +8,30 @@
             </div>
         </div>
         <div class="form-group row">
-            <label for="comment" class="col-sm-2 col-form-label">Comment</label>
+            <label for="desc" class="col-sm-2 col-form-label">Description</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="comment" ng-model="comment">
+                <textarea class="form-control" id="desc" ng-model="desc" rows="8" cols="40"> </textarea>
             </div>
         </div>
         <div class="form-group row">
             <label for="prio" class="col-sm-2 col-form-label">Priority</label>
             <div class="col-sm-10">
-                <input type="number" class="form-control" id="prio" ng-model="prio">
+                <select class="form-control" id="prio" ng-model="prio">
+                    <option value="1-Important">1-Important</option>
+                    <option value="2-Info" checked>2-Info</option>
+                </select>
             </div>
         </div>
-      
+        <div class="form-group row">
+            <label for="file" class="col-sm-2 col-form-label">Upload File</label>
+            <div class="col-sm-10">
+                <input type="file" class="form-control" ng-model="file" accept="image/*" multiple>
+            </div>
+        </div>
         <div class="form-group row">
             <div class="col-sm-10">
-                <button type="button" class="btn btn-primary" ng-click="createMessage(); resetForm()">Create New Message</button>
+                <button type="button" class="btn btn-primary" ng-click="createMessage(); resetForm()">Create New
+                    Message</button>
             </div>
         </div>
     </form>

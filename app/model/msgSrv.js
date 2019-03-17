@@ -11,7 +11,9 @@ app.factory("msgSrv", function($log, $http, $q, genSrv, userSrv) {
         this.createdAt = MsgObject.createdAt;
         this.title = MsgObject.title;
         this.prio = MsgObject.prio;
-        this.comment = MsgObject.comment
+        this.desc = MsgObject.desc,
+        this.comment = MsgObject.comment,
+        this.file = MsgObject.file
     }
     
     function getMsgs() {
@@ -38,7 +40,7 @@ app.factory("msgSrv", function($log, $http, $q, genSrv, userSrv) {
     }    
     
     
-    function createMessage(title, comment, prio) {
+    function createMessage(title, desc, prio, file) {
       var async = $q.defer();
       
       var activeUserId = userSrv.getActiveUser().id;
@@ -47,7 +49,8 @@ app.factory("msgSrv", function($log, $http, $q, genSrv, userSrv) {
           id: newMessageId,
           prio: prio, 
           title: title, 
-          comment: comment,
+          desc: desc,
+          file: file,
           createdAt: new Date().getTime(),
           createdBy: activeUserId
       }
@@ -65,7 +68,6 @@ app.factory("msgSrv", function($log, $http, $q, genSrv, userSrv) {
       // Making sure that the messages are loaded
       getMsgs().then(function(messages) {
         async.resolve(messages[id]);  
-        console.log("current message from Srv:" + JSON.stringify(messages[id]));
       }, function(err) {
         async.reject(err);
       });

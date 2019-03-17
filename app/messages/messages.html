@@ -25,7 +25,7 @@
                 ng-class="{'bg-info' : message === selectedMsg}" ng-dblclick="openMsg(message)">
                 <td>{{$index + 1}}</td>
                 <td>{{message.title}}</td>
-                <td>{{message.prio | number}}</td>
+                <td>{{message.prio}}</td>
                 <td>{{message.createdBy}}</td>
                 <td>{{message.createdAt | date}}</td>
             </tr>

@@ -5,6 +5,7 @@
         "createdAt": "1335205592410",
         "title": "Shalom Title 1",
         "prio": "1",
+        "desc": "Description 1",
         "comment": "Commments 1"
     },
     {
@@ -13,6 +14,7 @@
         "createdAt": "1335209592410",
         "title": "Shalom Title 2",
         "prio": "2",
+        "desc": "Description 2",
         "comment": "Commments 2"
     }
 ]
