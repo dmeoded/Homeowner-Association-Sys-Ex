@@ -1,9 +1,10 @@
 <hoa-navbar></hoa-navbar>
 
 <div class="container">
-        <p>Title: {{messge.tile}}</p>
-        <p>Commemt: {{messge.comment}}</p>
-        <p>Created By: {{messge.createdBy}}</p>
-        <p>Created At: {{messge.createdAt}}</p>
-        <p>Priority: {{messge.prio()}}</p>
+        <p>Title: {{message.title}}</p>
+        <p>Commemt: {{message.comment}}</p>
+        <p>Created By: {{message.createdBy}}</p>
+        <p>Created At: {{message.createdAt}}</p>
+        <p>Priority: {{message.prio}}</p>
 </div>
+<button class="btn btn-primary" ng-click="replyMsg()">Reply Message</button>
