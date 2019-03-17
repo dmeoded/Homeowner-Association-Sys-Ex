@@ -9,16 +9,16 @@
             <tr>
                 <th>#</th>
                 <th ng-click="orderByProp('title')">Title
-                    <i class="fas" ng-class="{'fa-sort' : orderProp != 'brand', 'fa-sort-down' : orderProp === 'brand' && !reverseOrder, 'fa-sort-up' : orderProp === 'brand' && reverseOrder}"></i>
+                    <i class="fas" ng-class="{'fa-sort' : orderProp != 'title', 'fa-sort-down' : orderProp === 'title' && !reverseOrder, 'fa-sort-up' : orderProp === 'title' && reverseOrder}"></i>
                 </th>
                 <th ng-click="orderByProp('prio')">Priority
-                    <i class="fas" ng-class="{'fa-sort' : orderProp != 'model', 'fa-sort-down' : orderProp === 'model' && !reverseOrder, 'fa-sort-up' : orderProp === 'model' && reverseOrder}"></i>
+                    <i class="fas" ng-class="{'fa-sort' : orderProp != 'prio', 'fa-sort-down' : orderProp === 'prio' && !reverseOrder, 'fa-sort-up' : orderProp === 'prio' && reverseOrder}"></i>
                 </th>
                 <th ng-click="orderByProp('createdBy')">Created By
-                    <i class="fas" ng-class="{'fa-sort' : orderProp != 'brand', 'fa-sort-down' : orderProp === 'brand' && !reverseOrder, 'fa-sort-up' : orderProp === 'brand' && reverseOrder}"></i>
+                    <i class="fas" ng-class="{'fa-sort' : orderProp != 'createdBy', 'fa-sort-down' : orderProp === 'createdBy' && !reverseOrder, 'fa-sort-up' : orderProp === 'createdBy' && reverseOrder}"></i>
                 </th>
                 <th ng-click="orderByProp('createdAt')">Created At
-                    <i class="fas" ng-class="{'fa-sort' : orderProp != 'brand', 'fa-sort-down' : orderProp === 'brand' && !reverseOrder, 'fa-sort-up' : orderProp === 'brand' && reverseOrder}"></i>
+                    <i class="fas" ng-class="{'fa-sort' : orderProp != 'createdAt', 'fa-sort-down' : orderProp === 'createdAt' && !reverseOrder, 'fa-sort-up' : orderProp === 'createdAt' && reverseOrder}"></i>
                 </th>
             </tr>
             <tr ng-repeat="message in messages | filter : filterMsg | orderBy: orderProp : reverseOrder" ng-click="selectMsg(message)"
