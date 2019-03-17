@@ -1,7 +1,7 @@
 [
     {
         "id": "1",
-        "createdBy": "Dana Meoded",
+        "createdBy": "1",
         "createdAt": "1335205592410",
         "title": "Shalom Title 1",
         "prio": "1",
@@ -10,7 +10,7 @@
     },
     {
         "id": "2",
-        "createdBy": "Nir N",
+        "createdBy": "2",
         "createdAt": "1335209592410",
         "title": "Shalom Title 2",
         "prio": "2",
