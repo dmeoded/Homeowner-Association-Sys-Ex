@@ -50,8 +50,8 @@ app.factory("msgSrv", function($log, $http, $q) {
           createdAt: "1335207592410",
           createdBy: activeUserId
       }
-      var message = new message(newMessageObject);
-      messages[activeUserId].push(newMessage);
+      var newMessage = new Message(newMessageObject);
+      messages.push(newMessage);
       async.resolve(newMessage, messages[activeUserId]);
 
       return async.promise;
