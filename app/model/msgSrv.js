@@ -12,11 +12,11 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
     this.title = MsgObject.title;
     this.prio = MsgObject.prio;
     this.desc = MsgObject.desc,
-      this.comment = MsgObject.comment,
-      this.file = MsgObject.file
+    this.comment = MsgObject.comment,
+    this.file = MsgObject.file
   }
   Message.prototype.userFullName = function () {
-    // var currentYear = new Date().getFullYear();
+    // var currentYear = new Date().getFullYear(); // example
     // return this.km / (currentYear - this.year + 1);
 
     var async = $q.defer();
