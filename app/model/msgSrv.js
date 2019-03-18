@@ -12,8 +12,8 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
     this.title = MsgObject.title;
     this.prio = MsgObject.prio;
     this.desc = MsgObject.desc,
-    this.comment = MsgObject.comment,
-    this.file = MsgObject.file
+      this.comment = MsgObject.comment,
+      this.file = MsgObject.file
   }
   Message.prototype.userFullName = function () {
     // var currentYear = new Date().getFullYear(); // example
@@ -86,6 +86,14 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
     return async.promise;
   }
 
+//   function updateMessage(comment) {
+//     var async = $q.defer();
+//     //how do I implement???
+//   }
+
+//   return async.promise;
+// }
+
 
   function getMsgById(id) {
     var async = $q.defer();
@@ -102,9 +110,9 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
 
 
   return {
-    getMsgs: getMsgs,
-    createMessage: createMessage,
-    getMsgById: getMsgById
-  }
+  getMsgs: getMsgs,
+  createMessage: createMessage,
+  getMsgById: getMsgById
+}
 
 });
