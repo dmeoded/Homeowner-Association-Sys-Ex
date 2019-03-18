@@ -28,30 +28,19 @@
                         <div class="col-sm-10">{{message.createdBy}}</div>
                 </div>
                 <div class="form-group row">
-                        <label for="createdAt" class="col-sm-2 col-form-l"><strong>created At:</strong></label>
+                        <label for="createdAt" class="col-sm-2 col-form-l"><strong>Created At:</strong></label>
                         <div class="col-sm-10">{{message.createdAt | date}}</div>
                 </div>
 
                 <div class="form-group row">
                         <div class="col-sm-10">
                                 <input type="button" value="Reply" class="btn btn-primary float-sm-left mr-5"
-                                        ng-click="addComment(); resetForm()" />
+                                        ng-click="updMsg(); resetForm()" />
                         </div>
                 </div>
 
-                <div class="form-group row">
-                        <label for="comment" class="col-sm-2 col-form-label"><strong>Add Comment:</strong></label>
-                        <div class="col-sm-10">
-                                <textarea class="form-control" id="comment" ng-model="comment" rows="6"
-                                        cols="40"> </textarea>
-                        </div>
-                </div>
-                <div class="form-group row">
-                        <div class="col-sm-10">
-                                <input type="button" value="Send" class="btn btn-primary float-sm-left mr-5"
-                                        ng-click="appendComment(); resetForm()" />
-                                <input type="reset" value="Reset" class="btn btn-primary float-sm-left" />
-                        </div>
-                </div>
+</div>
 
+<div ng-show="showUpdMsg">
+        <update-message></update-message>
 </div>
