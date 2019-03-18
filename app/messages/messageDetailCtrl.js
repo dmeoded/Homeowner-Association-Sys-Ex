@@ -12,4 +12,8 @@ app.controller("messageDetailCtrl", function ($scope, msgSrv, userSrv,  $routePa
     console.log("current message from Ctrl:", message);
   })
 
+  $scope.resetForm = function () {
+    $scope.comment = null;
+}
+
 })
