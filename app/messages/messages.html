@@ -1,41 +1,47 @@
 <hoa-navbar></hoa-navbar>
 
 <main class="container">
-    <h1 class="display-1">Messages</h1>
+    <h1 class="display-3">Messages</h1>
     <p class="text-center py-5" ng-show="messages.length === 0">There are no messages</p>
     <div ng-show="messages.length > 0">
-        <input class="form-control my-3" placeholder="Filter Messages by Title or Description or Commemts or Created By" ng-model="filterBy">
+        <input class="form-control my-3" placeholder="Filter Messages by Title or Description or Commemts or Created By"
+            ng-model="filterBy">
         <table class="table">
             <tr>
                 <th>#</th>
                 <th ng-click="orderByProp('title')">Title
-                    <i class="fas" ng-class="{'fa-sort' : orderProp != 'title', 'fa-sort-down' : orderProp === 'title' && !reverseOrder, 'fa-sort-up' : orderProp === 'title' && reverseOrder}"></i>
+                    <i class="fas"
+                        ng-class="{'fa-sort' : orderProp != 'title', 'fa-sort-down' : orderProp === 'title' && !reverseOrder, 'fa-sort-up' : orderProp === 'title' && reverseOrder}"></i>
                 </th>
                 <th ng-click="orderByProp('prio')">Priority
-                    <i class="fas" ng-class="{'fa-sort' : orderProp != 'prio', 'fa-sort-down' : orderProp === 'prio' && !reverseOrder, 'fa-sort-up' : orderProp === 'prio' && reverseOrder}"></i>
+                    <i class="fas"
+                        ng-class="{'fa-sort' : orderProp != 'prio', 'fa-sort-down' : orderProp === 'prio' && !reverseOrder, 'fa-sort-up' : orderProp === 'prio' && reverseOrder}"></i>
                 </th>
                 <th ng-click="orderByProp('createdBy')">Created By ID
-                    <i class="fas" ng-class="{'fa-sort' : orderProp != 'createdBy', 'fa-sort-down' : orderProp === 'createdBy' && !reverseOrder, 'fa-sort-up' : orderProp === 'createdBy' && reverseOrder}"></i>
+                    <i class="fas"
+                        ng-class="{'fa-sort' : orderProp != 'createdBy', 'fa-sort-down' : orderProp === 'createdBy' && !reverseOrder, 'fa-sort-up' : orderProp === 'createdBy' && reverseOrder}"></i>
                 </th>
-                <th>Created By Name 
+                <th>Created By Name
                 </th>
                 <th ng-click="orderByProp('createdAt')">Created At
-                    <i class="fas" ng-class="{'fa-sort' : orderProp != 'createdAt', 'fa-sort-down' : orderProp === 'createdAt' && !reverseOrder, 'fa-sort-up' : orderProp === 'createdAt' && reverseOrder}"></i>
+                    <i class="fas"
+                        ng-class="{'fa-sort' : orderProp != 'createdAt', 'fa-sort-down' : orderProp === 'createdAt' && !reverseOrder, 'fa-sort-up' : orderProp === 'createdAt' && reverseOrder}"></i>
                 </th>
             </tr>
-            <tr ng-repeat="message in messages | filter : filterMsg | orderBy: orderProp : reverseOrder" ng-click="selectMsg(message)"
-                ng-class="{'bg-info' : message === selectedMsg}" ng-dblclick="openMsg(message)">
+            <tr ng-repeat="message in messages | filter : filterMsg | orderBy: orderProp : reverseOrder"
+                ng-click="selectMsg(message)" ng-class="{'bg-info' : message === selectedMsg}"
+                ng-dblclick="openMsg(message)">
                 <td>{{$index + 1}}</td>
                 <td>{{message.title}}</td>
                 <td>{{message.prio}}</td>
                 <td>{{message.createdBy}}</td>
-                <!-- <td>{{message.userFullName()}}</td> Need to check why not working--> 
+                <!-- <td>{{message.userFullName()}}</td> Need to check why not working-->
                 <td>{{message.createdBy}}</td>
                 <td>{{message.createdAt | date}}</td>
             </tr>
         </table>
         <button class="btn btn-primary" ng-click="addMsg()">Add New Message</button>
-    </div>  
+    </div>
 </main>
 
 <div ng-show="showNewMsg">
