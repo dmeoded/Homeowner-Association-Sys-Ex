@@ -27,7 +27,6 @@ app.factory("userSrv", function ($http, $q, $log) {
                     console.log("The active user in login lop:", activeUser);
 
                     async.resolve(activeUser);
-
                 }
             }
 
@@ -60,17 +59,17 @@ app.factory("userSrv", function ($http, $q, $log) {
         return activeUser;
     }
 
-    function getUserFullName() {
-        return activeUser.fullName;
-    }
+    // function getUserFullName() {
+    //     return activeUser.fullName;
+    // }
 
     return {
         login: login,
         isLoggedIn: isLoggedIn,
         logout: logout,
         getActiveUser: getActiveUser,
-        isCommitteeUser: isCommitteeUser,
-        getUserFullName: getUserFullName
+        // getUserFullName: getUserFullName,
+        isCommitteeUser: isCommitteeUser
     }
 
 });
