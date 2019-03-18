@@ -25,6 +25,7 @@ app.controller("messageCtrl", function ($scope, $http, $location, $log, msgSrv, 
         } else if (
             message.title.toLowerCase().includes($scope.filterBy.toLowerCase()) ||
             message.createddBy.toLowerCase().includes($scope.filterBy.toLowerCase()) ||
+            message.description.toLowerCase().includes($scope.filterBy.toLowerCase()) ||
             message.comment.toLowerCase().includes($scope.filterBy.toLowerCase())) {
             return true;
         } else {

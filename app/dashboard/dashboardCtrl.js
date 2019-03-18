@@ -9,8 +9,8 @@ app.controller("dashboardCtrl", function ($scope, $location, userSrv) {
 
     $scope.fullName = function () {
 
-        userSrv.getUserFullName($scope.id, $scope.email, $scope.pwd).then(function (activeUser) {
-            console.log("Hi Dana");
+        userSrv.getUserFullName($scope.email, $scope.pwd).then(function (activeUser) {
+            console.log("Hi Dana"); //Need to continue to check
         });
 
     }
