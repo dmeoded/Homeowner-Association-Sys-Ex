@@ -5,13 +5,13 @@
         <div class="form-group row">
             <label for="comment" class="col-sm-2 col-form-label"><strong>Add Comment:</strong></label>
             <div class="col-sm-10">
-                <textarea class="form-control" id="comment" ng-model="comment" rows="6" cols="40"> </textarea>
+                <textarea class="form-control" id="ncomment" ng-model="ncomment" rows="6" cols="40"> </textarea>
             </div>
         </div>
         <div class="form-group row">
             <div class="col-sm-10">
                 <input type="button" value="Send" class="btn btn-primary float-sm-left mr-5"
-                    ng-click="appendComment(); resetForm()" />
+                    ng-click="updateMessage(); resetForm()" />
                 <input type="reset" value="Reset" class="btn btn-primary float-sm-left" />
             </div>
         </div>

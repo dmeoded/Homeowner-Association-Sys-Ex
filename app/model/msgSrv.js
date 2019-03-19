@@ -86,13 +86,14 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
     return async.promise;
   }
 
-//   function updateMessage(comment) {
-//     var async = $q.defer();
-//     //how do I implement???
-//   }
+  function updateMessage(id, comment) {
+    var myTest = "my testing"
 
-//   return async.promise;
-// }
+    console.log("current message from msgSrv updateMessage:", myTest);
+
+    return myTest;
+
+  }
 
 
   function getMsgById(id) {
@@ -110,9 +111,9 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
 
 
   return {
-  getMsgs: getMsgs,
-  createMessage: createMessage,
-  getMsgById: getMsgById
-}
+    getMsgs: getMsgs,
+    createMessage: createMessage,
+    getMsgById: getMsgById
+  }
 
 });

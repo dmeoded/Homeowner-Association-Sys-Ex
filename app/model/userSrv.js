@@ -23,8 +23,8 @@ app.factory("userSrv", function ($http, $q, $log) {
             for (var i = 0; i < users.length; i++) {
                 if (users[i].email === email && users[i].pwd === pwd) {
                     activeUser = new User(users[i]);
-                    console.log("The current array user in login lop:", users[i]);
-                    console.log("The active user in login lop:", activeUser);
+                    // console.log("The current array user in login lop:", users[i]);
+                    // console.log("The active user in login lop:", activeUser);
 
                     async.resolve(activeUser);
                 }
@@ -47,7 +47,7 @@ app.factory("userSrv", function ($http, $q, $log) {
     }
 
     function isCommitteeUser() {
-        console.log("The active user is commettee member?" + JSON.stringify(activeUser));
+        // console.log("The active user is commettee member?" + JSON.stringify(activeUser));
         return isLoggedIn() && activeUser.isCommitteeMember ? true : false;
     }
 

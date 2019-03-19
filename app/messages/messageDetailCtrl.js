@@ -1,4 +1,4 @@
-app.controller("messageDetailCtrl", function ($scope, msgSrv, userSrv,  $routeParams, $location) {
+app.controller("messageDetailCtrl", function ($scope, msgSrv, userSrv, $routeParams, $location) {
 
   if (!userSrv.isLoggedIn()) {
     $location.path("/");
@@ -12,8 +12,13 @@ app.controller("messageDetailCtrl", function ($scope, msgSrv, userSrv,  $routePa
     console.log("current message from Ctrl:", message);
   })
 
+  $scope.showUpdMsg = false;
+  $scope.updMsg = function () {
+      $scope.showUpdMsg = true;
+  }
+
   $scope.resetForm = function () {
     $scope.comment = null;
-}
+  }
 
 })
