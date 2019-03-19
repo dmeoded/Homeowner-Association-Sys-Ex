@@ -87,7 +87,7 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
   }
 
   function updateMessage(id, comment) {
-    var myTest = "my testing"
+    var myTest = "my testing";
 
     console.log("current message from msgSrv updateMessage:", myTest);
 
