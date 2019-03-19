@@ -1,4 +1,8 @@
-app.controller("messageDetailCtrl", function ($scope, msgSrv, userSrv, $routeParams, $location) {
+app.controller("messageDetailCtrl", function ($scope, $rootScope, msgSrv, userSrv, $routeParams, $location) {
+
+  app.run(function ($rootScope) {
+    $rootScope.message = messae;
+  });
 
   if (!userSrv.isLoggedIn()) {
     $location.path("/");
@@ -14,7 +18,7 @@ app.controller("messageDetailCtrl", function ($scope, msgSrv, userSrv, $routePar
 
   $scope.showUpdMsg = false;
   $scope.updMsg = function () {
-      $scope.showUpdMsg = true;
+    $scope.showUpdMsg = true;
   }
 
   $scope.resetForm = function () {

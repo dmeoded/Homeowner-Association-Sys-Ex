@@ -15,8 +15,8 @@ app.controller("updateMessageCtrl", function ($scope, $rootScope, msgSrv, $route
     // };
 
     $scope.updateMessage = function () {
-        $scope.comment = $rootScope.comment + $scope.ncomment;
-        console.log("current message from Ctrl after Update: ", $rootScope.comment + $scope.ncomment);
+        $scope.comment = $scope.message.comment + $scope.ncomment;
+        console.log("current message from Ctrl after Update: ", $scope.message.comment + " " + $scope.ncomment);
         $scope.showUpdMsg = false;
     };
 

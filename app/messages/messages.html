@@ -29,7 +29,7 @@
                 </th>
             </tr>
             <tr ng-repeat="message in messages | filter : filterMsg | orderBy: orderProp : reverseOrder"
-                ng-click="selectMsg(message)" ng-class="{'bg-info' : message === selectedMsg}"
+                ng-click="selectMsg(message)" ng-class="{'bg-secondary' : message === selectedMsg}"
                 ng-dblclick="openMsg(message)">
                 <td>{{$index + 1}}</td>
                 <td>{{message.title}}</td>
