@@ -23,11 +23,10 @@ app.controller("messageCtrl", function ($scope, $http, $location, $log, msgSrv, 
         if (!$scope.filterBy) {
             return true;
         } else if (
-            message.title.includes($scope.filterBy) ||
-            message.createdBy.includes($scope.filterBy) ||
-            message.description.includes($scope.filterBy) 
-            // ||
-            // !(message.comment) && message.comment.includes($scope.filterBy)
+            message.title.toLowerCase().includes($scope.filterBy.toLowerCase()) ||
+            message.createdBy.toLowerCase().includes($scope.filterBy.toLowerCase()) ||
+            message.desc.toLowerCase().includes($scope.filterBy.toLowerCase()) ||
+            message.comment.toLowerCase().includes($scope.filterBy.toLowerCase())
         ) {
             return true;
         } else {
