@@ -17,11 +17,9 @@
                     <i class="fas"
                         ng-class="{'fa-sort' : orderProp != 'prio', 'fa-sort-down' : orderProp === 'prio' && !reverseOrder, 'fa-sort-up' : orderProp === 'prio' && reverseOrder}"></i>
                 </th>
-                <th ng-click="orderByProp('createdBy')">Created By ID
+                <th ng-click="orderByProp('createdBy')">Created By
                     <i class="fas"
                         ng-class="{'fa-sort' : orderProp != 'createdBy', 'fa-sort-down' : orderProp === 'createdBy' && !reverseOrder, 'fa-sort-up' : orderProp === 'createdBy' && reverseOrder}"></i>
-                </th>
-                <th>Created By Name
                 </th>
                 <th ng-click="orderByProp('createdAt')">Created At
                     <i class="fas"
@@ -34,8 +32,6 @@
                 <td>{{$index + 1}}</td>
                 <td>{{message.title}}</td>
                 <td>{{message.prio}}</td>
-                <td>{{message.createdBy}}</td>
-                <!-- <td>{{message.userFullName()}}</td> Need to check why not working-->
                 <td>{{message.createdBy}}</td>
                 <td>{{message.createdAt | date}}</td>
             </tr>

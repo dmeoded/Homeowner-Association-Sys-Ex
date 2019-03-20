@@ -68,7 +68,7 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
   function createMessage(title, desc, prio, file) {
     var async = $q.defer();
 
-    var activeUserId = userSrv.getActiveUser().id;
+    var activeUserId = userSrv.getActiveUser().fullName;
     var newMessageId = genSrv.makeId(8);  // the id should be unique
     var newMessageObject = {
       id: newMessageId,
