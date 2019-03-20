@@ -15,32 +15,7 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
       this.comment = MsgObject.comment,
       this.file = MsgObject.file
   }
-  Message.prototype.userFullName = function () {
-    // var currentYear = new Date().getFullYear(); // example
-    // return this.km / (currentYear - this.year + 1);
-
-    var async = $q.defer();
-
-    $http.get("app/model/data/users.json").then(function (response) {
-      var users = response.data;
-      for (var i = 0; i < users.length; i++) {
-        if (users[i].id === this.id) {
-          fullName = (users[i].fullName);
-          async.resolve(fullName);
-        }
-      }
-      if (!fullName) {
-        async.reject("Unknown User to get User Name!!");
-      }
-    }, function (error) {
-      $log.error(error);
-      async.reject(error);
-    })
-
-    return async.promise;
-  }
-
-
+  
   function getMsgs() {
     var async = $q.defer();
 
