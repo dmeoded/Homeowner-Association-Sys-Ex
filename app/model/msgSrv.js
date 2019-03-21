@@ -62,7 +62,7 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
   }
 
 
-  function updateMessage(id, comment) {
+  function updateMessage(id, ncomment) {
     var async = $q.defer();
 
     $http.get("app/model/data/messages.json").then(function (response) {
@@ -73,7 +73,7 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
           currMsg = new Message(messages[i]);
 
           console.log("Srv: The current array message in messages lop:", messages[i]);
-          console.log("Srv:The message user in login lop:", currMsg, comment);
+          console.log("Srv:The message user in login lop:", currMsg, ncomment);
 
           async.resolve(currMsg);
         }
