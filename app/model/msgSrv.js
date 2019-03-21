@@ -15,7 +15,7 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
       this.comment = MsgObject.comment,
       this.file = MsgObject.file
   }
-  
+
   function getMsgs() {
     var async = $q.defer();
 
@@ -61,15 +61,29 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
     return async.promise;
   }
 
+
   function updateMessage(id, comment) {
-    var myTest = "my testing";
+    var async = $q.defer();
 
-    console.log("current message from msgSrv updateMessage:", myTest);
+    $http.get("app/model/data/messages.json").then(function (response) {
+      var messages = response.data;
+      for (var i = 0; i < messages.length; i++) {
+        if (messages[i].id === id) {
+          messages[i].comment += " " + ncomment ;
+          currMsg = new Message(messages[i]);
 
-    return myTest;
+          console.log("Srv: The current array message in messages lop:", messages[i]);
+          console.log("Srv:The message user in login lop:", currMsg, comment);
 
+          async.resolve(currMsg);
+        }
+      }
+    }, function (error) {
+      $log.error(error);
+      async.reject(error);
+    })
+    return async.promise;
   }
-
 
   function getMsgById(id) {
     var async = $q.defer();
@@ -88,6 +102,7 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
   return {
     getMsgs: getMsgs,
     createMessage: createMessage,
+    updateMessage: updateMessage,
     getMsgById: getMsgById
   }
 
