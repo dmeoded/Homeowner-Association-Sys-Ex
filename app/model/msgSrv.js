@@ -63,26 +63,8 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
 
 
   function updateMessage(id, ncomment) {
-    var async = $q.defer();
 
-    $http.get("app/model/data/messages.json").then(function (response) {
-      var messages = response.data;
-      for (var i = 0; i < messages.length; i++) {
-        if (messages[i].id === id) {
-          messages[i].comment += " " + ncomment ;
-          currMsg = new Message(messages[i]);
-
-          console.log("Srv: The current array message in messages lop:", messages[i]);
-          console.log("Srv:The message user in login lop:", currMsg, ncomment);
-
-          async.resolve(currMsg);
-        }
-      }
-    }, function (error) {
-      $log.error(error);
-      async.reject(error);
-    })
-    return async.promise;
+    return "DDDDD";
   }
 
   function getMsgById(id) {

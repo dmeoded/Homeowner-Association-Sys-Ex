@@ -13,7 +13,7 @@ app.controller("messageDetailCtrl", function ($scope, $rootScope, msgSrv, userSr
 
   msgSrv.getMsgById($routeParams.msgId).then(function (message) {
     $scope.message = message;
-    console.log("current message from Ctrl:", message);
+    console.log("current message from Detail Ctrl:", message);
   })
 
   $scope.showUpdMsg = false;
