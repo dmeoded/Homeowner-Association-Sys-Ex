@@ -47,6 +47,7 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
     var newMessageId = genSrv.makeId(8);  // the id should be unique
     var newMessageObject = {
       id: newMessageId,
+      type: regMessage,
       prio: prio,
       title: title,
       desc: desc,
