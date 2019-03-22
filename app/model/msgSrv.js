@@ -10,6 +10,7 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
     this.createdBy = MsgObject.createdBy;
     this.createdAt = MsgObject.createdAt;
     this.title = MsgObject.title;
+    this.msgType = MsgObject.msgType;
     this.prio = MsgObject.prio;
     this.desc = MsgObject.desc,
     this.comment = MsgObject.comment,
@@ -40,14 +41,14 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
   }
 
 
-  function createMessage(title, desc, prio, file) {
+  function createMessage(title, msgType, desc, prio, file) {
     var async = $q.defer();
 
     var activeUser = userSrv.getActiveUser().fullName;
     var newMessageId = genSrv.makeId(8);  // the id should be unique
     var newMessageObject = {
       id: newMessageId,
-      type: regMessage,
+      msgType: "Message",
       prio: prio,
       title: title,
       desc: desc,

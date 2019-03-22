@@ -5,7 +5,7 @@
         "createdAt": "1335205592410",
         "title": "Message Shalom Title 1",
         "prio": "1",
-        "type": "Message",
+        "msgType": "Message",
         "desc": "Description 1",
         "comment": "Commments 1"
     },
@@ -15,7 +15,7 @@
         "createdAt": "1335209592410",
         "title": "Message Shalom Title 2",
         "prio": "2",
-        "type": "Message",
+        "msgType": "Message",
         "desc": "Description 2",
         "comment": "Commments 2"
     },
@@ -25,7 +25,7 @@
         "createdAt": "1335205592410",
         "title": "Issue Shalom Title 1",
         "prio": "9",
-        "type": "Issue",
+        "msgType": "Issue",
         "desc": "Description 9",
         "comment": "Commments 9"
     },
@@ -35,7 +35,7 @@
         "createdAt": "1335209592410",
         "title": "Issue Shalom Title 2",
         "prio": "7",
-        "type": "Issue",
+        "msgType": "Issue",
         "desc": "Description 2",
         "comment": "Commments 7"
     }

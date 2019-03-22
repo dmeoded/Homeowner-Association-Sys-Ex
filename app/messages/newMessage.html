@@ -1,12 +1,24 @@
 <div class="container new-message mt-5">
     <h1>New message</h1>
-    <form class="mt-3" ng-submit="submit()" >
+    <form class="mt-3" ng-submit="submit()">
         <div class="form-group row">
             <label for="title" class="col-sm-2 col-form-label">Title</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" id="title" name="title" ng-model="title" required>
             </div>
         </div>
+
+        <div class="alert alert-danger row" role="alert" ng-show="inValideMsg">
+            <strong>Title Cannot be Null!!!</strong> Please add title.
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-10">
+                    <label for="msgType" class="col-sm-2 col-form-label">Message Type</label>
+                <input type="text" class="form-control" id="msgType" name="msgType" ng-model="msgType" value="Message">
+            </div>
+        </div>
+
         <div class="form-group row">
             <label for="desc" class="col-sm-2 col-form-label">Description</label>
             <div class="col-sm-10">
@@ -30,8 +42,9 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-10">
-                <input type="button" value="Create" id="submit" class="btn btn-primary float-sm-left mr-5" ng-click="createMessage(); resetForm()">
-                <input type="reset" value="Reset"  class="btn btn-primary float-sm-left"/>
+                <input type="button" value="Create" id="submit" class="btn btn-primary float-sm-left mr-5"
+                    ng-click="createMessage(); valideMsg(); resetForm()">
+                <input type="reset" value="Reset" class="btn btn-primary float-sm-left" />
             </div>
         </div>
     </form>
