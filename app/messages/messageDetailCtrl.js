@@ -1,7 +1,7 @@
 app.controller("messageDetailCtrl", function ($scope, $rootScope, msgSrv, userSrv, $routeParams, $location) {
 
   app.run(function ($rootScope) {
-    $rootScope.message = messae;
+    $rootScope.message = message;
   });
 
   if (!userSrv.isLoggedIn()) {

@@ -12,8 +12,8 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
     this.title = MsgObject.title;
     this.prio = MsgObject.prio;
     this.desc = MsgObject.desc,
-      this.comment = MsgObject.comment,
-      this.file = MsgObject.file
+    this.comment = MsgObject.comment,
+    this.file = MsgObject.file
   }
 
   function getMsgs() {
@@ -43,7 +43,7 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
   function createMessage(title, desc, prio, file) {
     var async = $q.defer();
 
-    var activeUserId = userSrv.getActiveUser().fullName;
+    var activeUser = userSrv.getActiveUser().fullName;
     var newMessageId = genSrv.makeId(8);  // the id should be unique
     var newMessageObject = {
       id: newMessageId,
@@ -52,11 +52,11 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
       desc: desc,
       file: file,
       createdAt: new Date().getTime(),
-      createdBy: activeUserId
+      createdBy: activeUser
     }
     var newMessage = new Message(newMessageObject);
     messages.push(newMessage);
-    async.resolve(newMessage, messages[activeUserId]);
+    async.resolve(newMessage, messages[activeUser]);
 
     return async.promise;
   }
