@@ -2,7 +2,6 @@
 app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
 
   var messages = [];
-  var wasEverLoaded = false;
 
   // Message constructor
   function Message(MsgObject) {
@@ -13,19 +12,19 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
     this.msgType = MsgObject.msgType;
     this.prio = MsgObject.prio;
     this.desc = MsgObject.desc,
-    this.comment = MsgObject.comment,
-    this.file = MsgObject.file,
-    this.issueStatus = MsgObject.issueStatus,
-    this.issueDueDate = MsgObject.issueDueDate
+      this.comment = MsgObject.comment,
+      this.file = MsgObject.file,
+      this.issueStatus = MsgObject.issueStatus,
+      this.issueDueDate = MsgObject.issueDueDate
   }
 
   function getMsgs(msgType) {
     var async = $q.defer();
+    var messages = [];
+
     console.log("msgType in msgSrv: ", msgType);
 
-    if (wasEverLoaded) {
-      async.resolve(messages);
-    } else {
+    {
       // Get all message from JSON - only for the first time
       $http.get("app/model/data/messages.json").then(function (res) {
         // success
@@ -34,10 +33,9 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
           console.log("msgType in msgSrv Loop: ", res.data[i].msgType);
 
           if (res.data[i].msgType === msgType) {
-          messages.push(new Message(res.data[i]));
+            messages.push(new Message(res.data[i]));
           }
         }
-        wasEverLoaded = false; //Fake set to see if this is the casue for the problems with issues
         async.resolve(messages); // resolving the promise with the messages array      
       }, function (err) {
         // error
