@@ -1,8 +1,8 @@
 
-app.controller("newMessageCtrl", function ($scope, $rootScope, msgSrv, $location, $log) {
+app.controller("newIssueCtrl", function ($scope, $rootScope, msgSrv, $location, $log) {
 
     $scope.createMessage = function () {
-        $scope.msgType = "Message";
+        $scope.msgType = "Issue";
         msgSrv.createMessage
         ($scope.title, $scope.msgType,  $scope.desc, $scope.prio, $scope.file).then(function () {
             $location.path("/messages");
@@ -23,6 +23,8 @@ app.controller("newMessageCtrl", function ($scope, $rootScope, msgSrv, $location
         $scope.desc = null;
         $scope.prio = null;
         $scope.file = null;
+        $scope.issueStatus = null;
+        $scope.issueDueDate = null;
     }
 
 });
