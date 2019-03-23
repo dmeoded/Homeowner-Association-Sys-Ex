@@ -21,6 +21,7 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
 
   function getMsgs(msgType) {
     var async = $q.defer();
+    console.log("msgType in msgSrv: ", msgType);
 
     if (wasEverLoaded) {
       async.resolve(messages);
@@ -30,11 +31,13 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
         // success
         for (var i = 0; i < res.data.length; i++) {
           // messages.push(new Message(res.data[i]));
+          console.log("msgType in msgSrv Loop: ", res.data[i].msgType);
+
           if (res.data[i].msgType === msgType) {
           messages.push(new Message(res.data[i]));
           }
         }
-        wasEverLoaded = true;
+        wasEverLoaded = false; //Fake set to see if this is the casue for the problems with issues
         async.resolve(messages); // resolving the promise with the messages array      
       }, function (err) {
         // error

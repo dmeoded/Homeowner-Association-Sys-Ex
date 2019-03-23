@@ -24,7 +24,8 @@ app.config(function ($routeProvider) {
         controller: "messageCtrl"
 
     }).when("/issues", {
-        templateUrl: "app/issues/issues.html"
+        templateUrl: "app/issues/issues.html",
+        controller: "issueCtrl"
 
     }).when("/voting", {
         templateUrl: "app/voting/voting.html"
