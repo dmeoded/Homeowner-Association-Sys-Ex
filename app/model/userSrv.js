@@ -8,7 +8,8 @@ app.factory("userSrv", function ($http, $q, $log) {
         this.email = genUser.email;
         this.tel = genUser.tel;
         this.aptNo = genUser.aptNo;
-        this.flrNo = genUser.flrNo;
+        this.aptFlr = genUser.aptFlr;
+        this.tel = genUser.tel;
         this.isCommitteeMember = genUser.isCommitteeMember;
         this.isHomeOwner = genUser.isHomeOwner;
         this.communityId = genUser.communityId;
@@ -59,6 +60,32 @@ app.factory("userSrv", function ($http, $q, $log) {
         return activeUser;
     }
 
+    function getUsers() {
+        var async = $q.defer();
+        console.log("In getUsers: ");
+        if (wereMsgsLoaded) {
+          async.resolve(messages);
+        } else {
+          // Get all message from JSON - only for the first time
+          $http.get("app/model/data/users.json").then(function (res) {
+            // success
+            for (var i = 0; i < res.data.length; i++) {
+              console.log("In getUsers Loop: ", res.data[i].fullName);
+    
+            }
+            async.resolve(messages); // resolving the promise with the messages array      
+          }, function (err) {
+            // error
+            async.reject(err);  // rejecting the promise
+          
+          });
+          wereMsgsLoaded = true; //Fake set to see if this is the casue for the problems with issues
+    
+        }
+    
+        return async.promise;
+      }
+
     // function getUserFullName() {
     //     return activeUser.fullName;
     // }
@@ -68,6 +95,7 @@ app.factory("userSrv", function ($http, $q, $log) {
         isLoggedIn: isLoggedIn,
         logout: logout,
         getActiveUser: getActiveUser,
+        getUsers: getUsers,
         // getUserFullName: getUserFullName,
         isCommitteeUser: isCommitteeUser
     }

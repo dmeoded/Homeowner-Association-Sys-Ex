@@ -1,3 +1,50 @@
 <hoa-navbar></hoa-navbar>
 
-<h1> My Tenants</h1>
+<main class="container">
+    <h1 class="display-3">Tenantes</h1>
+    <p class="text-center py-5" ng-show="messages.length === 0">There are no messages</p>
+    <div ng-show="messages.length > 0">
+        <input class="form-control my-3" placeholder="Filter Tenant Details"
+            ng-model="filterBy">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th ng-click="orderByProp('fullName')">Name
+                    <i class="fas"
+                        ng-class="{'fa-sort' : orderProp != 'fullName', 'fa-sort-down' : orderProp === 'fullName' && !reverseOrder, 'fa-sort-up' : orderProp === 'fullName' && reverseOrder}"></i>
+                </th>
+                <th ng-click="orderByProp('eMail')">eMail
+                    <i class="fas"
+                        ng-class="{'fa-sort' : orderProp != 'eMail', 'fa-sort-down' : orderProp === 'eMail' && !reverseOrder, 'fa-sort-up' : orderProp === 'eMail' && reverseOrder}"></i>
+                </th>
+                <th ng-click="orderByProp('prio')"> Priority
+                        <i class="fas"
+                            ng-class="{'fa-sort' : orderProp != 'prio', 'fa-sort-down' : orderProp === 'prio' && !reverseOrder, 'fa-sort-up' : orderProp === 'prio' && reverseOrder}"></i>
+                    </th>
+                <th ng-click="orderByProp('createdBy')">Created By
+                    <i class="fas"
+                        ng-class="{'fa-sort' : orderProp != 'createdBy', 'fa-sort-down' : orderProp === 'createdBy' && !reverseOrder, 'fa-sort-up' : orderProp === 'createdBy' && reverseOrder}"></i>
+                </th>
+                <th ng-click="orderByProp('createdAt')">Created At
+                    <i class="fas"
+                        ng-class="{'fa-sort' : orderProp != 'createdAt', 'fa-sort-down' : orderProp === 'createdAt' && !reverseOrder, 'fa-sort-up' : orderProp === 'createdAt' && reverseOrder}"></i>
+                </th>
+            </tr>
+            <tr ng-repeat="message in messages | filter : filterMsg | orderBy: orderProp : reverseOrder"
+                ng-click="selectMsg(message)" ng-class="{'bg-secondary' : message === selectedMsg}"
+                ng-dblclick="openMsg(message)">
+                <td>{{$user + 1}}</td>
+                <td>{{user.title}}</td>
+                <td>{{message.prio}}</td>
+                <td>{{message.createdBy}}</td>
+                <td>{{message.createdAt | date}}</td>
+            </tr>
+        </table>
+        <button class="btn btn-primary float-sm-right" ng-click="addUsr()">Add New User</button>
+    </div>
+</main>
+
+
+<div ng-show="showNewMsg">
+    <new-message></new-message>
+</div>
