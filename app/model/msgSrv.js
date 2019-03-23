@@ -14,7 +14,9 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
     this.prio = MsgObject.prio;
     this.desc = MsgObject.desc,
     this.comment = MsgObject.comment,
-    this.file = MsgObject.file
+    this.file = MsgObject.file,
+    this.issueStatus = MsgObject.issueStatus,
+    this.issueDueDate = MsgObject.issueDueDate
   }
 
   function getMsgs(msgType) {
@@ -44,7 +46,7 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
   }
 
 
-  function createMessage(title, msgType, desc, prio, file) {
+  function createMessage(title, msgType, desc, prio, file, issueStatus, issueDueDate) {
     var async = $q.defer();
 
     var activeUser = userSrv.getActiveUser().fullName;
@@ -57,7 +59,9 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
       desc: desc,
       file: file,
       createdAt: new Date().getTime(),
-      createdBy: activeUser
+      createdBy: activeUser,
+      issueStatus: issueStatus,
+      issueDueDate: issueDueDate
     }
     var newMessage = new Message(newMessageObject);
     messages.push(newMessage);
