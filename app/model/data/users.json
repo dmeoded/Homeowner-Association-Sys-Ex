@@ -5,7 +5,7 @@
         "email": "dana@dana.com",
         "pwd": "123",
         "aptNo": "13",
-        "aptFlr": "4",
+        "flrNo": "4",
         "tel": "054-9100219",
         "isCommitteeMember": true,
         "communityId": "1"
@@ -16,7 +16,7 @@
         "email": "nir@nir.com",
         "pwd": "123",
         "aptNo": "2",
-        "aptFlr": "1",
+        "flrNo": "1",
         "tel": "052-9100211",
         "isCommitteeMember": false,
         "communityId": "1"
@@ -27,7 +27,7 @@
         "email": "john@john.com",
         "pwd": "456",
         "aptNo": "2",
-        "aptFlr": "19",
+        "flrNo": "19",
         "tel": "052-9300211",
         "isCommitteeMember": false,
         "communityId": "2"

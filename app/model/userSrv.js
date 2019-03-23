@@ -11,7 +11,7 @@ app.factory("userSrv", function ($http, $q, $log) {
         this.email = genUser.email;
         this.tel = genUser.tel;
         this.aptNo = genUser.aptNo;
-        this.aptFlr = genUser.aptFlr;
+        this.flrNo = genUser.aptFlr;
         this.tel = genUser.tel;
         this.isCommitteeMember = genUser.isCommitteeMember;
         this.isHomeOwner = genUser.isHomeOwner;
@@ -69,12 +69,12 @@ app.factory("userSrv", function ($http, $q, $log) {
         if (wereLoaded) {
             async.resolve(users);
         } else {
-            // Get all message from JSON - only for the first time
+            // Get all users from JSON - only for the first time
             $http.get("app/model/data/users.json").then(function (res) {
                 // success
                 for (var i = 0; i < res.data.length; i++) {
                     console.log("In getUsers Loop: ", res.data[i].fullName);
-
+                    users.push(new User(res.data[i]));
                 }
                 console.log("In getUsers - users array: ", users);
                 async.resolve(users); // resolving the promise with the messages array      

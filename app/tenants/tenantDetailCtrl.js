@@ -1,8 +1,31 @@
 
-app.directive("issueDetail", function() {
-    return {
-        templateUrl: "app/issues/issueDetail.html",
-        restrcit: "E",
-        controller: "issueDetailCtrl"
+app.controller("userDetailCtrl", function ($scope, $rootScope, UsrSrv, userSrv, $routeParams, $location) {
+
+    app.run(function ($rootScope) {
+      $rootScope.user = user;
+    });
+  
+    if (!userSrv.isLoggedIn()) {
+      $location.path("/");
+      return;
     }
-})
+  
+    $scope.activeUser = userSrv.getActiveUser();
+  
+    console.log("current user ID from Detail Ctrl:", $routeParams.UsrId);
+  
+    UsrSrv.getUsrById($routeParams.usrId).then(function (user) {
+      $scope.user = user;
+      console.log("current user from Detail Ctrl:", user);
+    })
+  
+    $scope.showUpdUsr = false;
+    $scope.updUsr = function () {
+      $scope.showUpdUsr = true;
+    }
+  
+    $scope.resetForm = function () {
+      $scope.comment = null;
+    }
+  
+  })

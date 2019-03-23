@@ -24,10 +24,10 @@ app.controller("tenantCtrl", function ($scope, $http, $location, $log, msgSrv, u
         if (!$scope.filterBy) {
             return true;
         } else if (
-            message.title.toLowerCase().includes($scope.filterBy.toLowerCase()) ||
-            message.createdBy.toLowerCase().includes($scope.filterBy.toLowerCase()) ||
-            message.desc.toLowerCase().includes($scope.filterBy.toLowerCase()) ||
-            message.comment.toLowerCase().includes($scope.filterBy.toLowerCase())
+            message.fullname.toLowerCase().includes($scope.filterBy.toLowerCase()) ||
+            message.eMail.toLowerCase().includes($scope.filterBy.toLowerCase()) ||
+            message.flrNo.toLowerCase().includes($scope.filterBy.toLowerCase()) ||
+            message.aptNo.toLowerCase().includes($scope.filterBy.toLowerCase())
         ) {
             return true;
         } else {

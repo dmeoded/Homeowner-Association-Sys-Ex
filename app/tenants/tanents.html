@@ -4,7 +4,7 @@
     <h1 class="display-3">Tenantes</h1>
     <p class="text-center py-5" ng-show="users.length === 0">There are no Tenants</p>
     <div ng-show="users.length > 0">
-        <input class="form-control my-3" placeholder="Filter Tenant Details"
+        <input class="form-control my-3" placeholder="Filter Tenant Details by Name or email"
             ng-model="filterBy">
         <table class="table">
             <tr>
@@ -17,27 +17,21 @@
                     <i class="fas"
                         ng-class="{'fa-sort' : orderProp != 'eMail', 'fa-sort-down' : orderProp === 'eMail' && !reverseOrder, 'fa-sort-up' : orderProp === 'eMail' && reverseOrder}"></i>
                 </th>
-                <th ng-click="orderByProp('prio')"> Priority
-                        <i class="fas"
-                            ng-class="{'fa-sort' : orderProp != 'prio', 'fa-sort-down' : orderProp === 'prio' && !reverseOrder, 'fa-sort-up' : orderProp === 'prio' && reverseOrder}"></i>
-                    </th>
-                <th ng-click="orderByProp('createdBy')">Created By
-                    <i class="fas"
-                        ng-class="{'fa-sort' : orderProp != 'createdBy', 'fa-sort-down' : orderProp === 'createdBy' && !reverseOrder, 'fa-sort-up' : orderProp === 'createdBy' && reverseOrder}"></i>
-                </th>
-                <th ng-click="orderByProp('createdAt')">Created At
-                    <i class="fas"
-                        ng-class="{'fa-sort' : orderProp != 'createdAt', 'fa-sort-down' : orderProp === 'createdAt' && !reverseOrder, 'fa-sort-up' : orderProp === 'createdAt' && reverseOrder}"></i>
-                </th>
+                <th> Telephone</th>
+                <th> Floor No</th>
+                <th> Apartment No</th>
             </tr>
-            <tr ng-repeat="message in messages | filter : filterMsg | orderBy: orderProp : reverseOrder"
-                ng-click="selectMsg(message)" ng-class="{'bg-secondary' : message === selectedMsg}"
-                ng-dblclick="openMsg(message)">
+
+            <tr ng-repeat="user in users | filter : filterUsr | orderBy: orderProp : reverseOrder"
+                ng-click="selectUsr(user)" ng-class="{'bg-secondary' : user === selectedUsr}"
+                ng-dblclick="openUsr(user)">
                 <td>{{$user + 1}}</td>
-                <td>{{user.title}}</td>
-                <td>{{message.prio}}</td>
-                <td>{{message.createdBy}}</td>
-                <td>{{message.createdAt | date}}</td>
+                <td>{{user.fullName}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.tel}}</td>
+                <td>{{user.flrNo}}</td>
+                <td>{{user.aptNo}}</td>
+
             </tr>
         </table>
         <!-- <button class="btn btn-primary float-sm-right" ng-click="addUsr()">Add New User</button> -->

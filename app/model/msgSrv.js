@@ -39,6 +39,7 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
           }
         }
         async.resolve(messages); // resolving the promise with the messages array      
+
       }, function (err) {
         // error
         async.reject(err);  // rejecting the promise
