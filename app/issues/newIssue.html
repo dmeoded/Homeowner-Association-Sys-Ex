@@ -24,45 +24,47 @@
         </div> -->
 
         <div class="form-group row">
-            <label for="msg-status" class="col-sm-2 col-form-label">Description</label>
-            <div class="col-sm-10">
-            </div>
+            <label for="msg-status" class="col-sm-2 col-form-label">Status</label>
+
+            <input type="text" class="form-control" id="msg-status" ng-model="msgStatus"> </input>
+            <div class="form-group row"></div>
         </div>
 
         <div class="form-group row">
-            <input type="text" class="form-control" id="msg-status" ng-model="msg-status"> </input>
-            <div class="form-group row"></div>
+            <label for="msg-status" class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+                <select class="form-control" id="prio" ng-model="prio" required>
+                    <option value="1-Open">1-Open</option>
+                    <option value="2-Closed">2-Closed</option>
+                    <option value="3-Suspended" selected="selected">3-Suspended</option>
+                </select>
+            </div>
         </div>
-</div>
-<div class="form-group row"></div>
-<label for="desc" class="col-sm-2 col-form-label">Description</label>
-<div class="col-sm-10">
-    <textarea class="form-control" id="desc" ng-model="desc" rows="8" cols="40"> </textarea>
-</div>
-</div>
-<div class="form-group row">
-    <label for="prio" class="col-sm-2 col-form-label">Priority</label>
-    <div class="col-sm-10">
-        <select class="form-control" id="prio" ng-model="prio" required>
-            <option value="1-Urgent">1-Important</option>
-            <option value="2-Medium" selected="selected">2-Medium</option>
-            <option value="3-Low" selected="selected">3-Low</option>
-        </select>
-    </div>
-</div>
-<div class="form-group row">
-    <label for="file" class="col-sm-2 col-form-label">Upload File</label>
-    <div class="col-sm-10">
-        <input type="file" class="form-control" ng-model="file" accept="image/*" multiple>
-    </div>
-</div>
-<div class="form-group row">
-    <div class="col-sm-10">
-        <input type="button" value="Create" id="submit" class="btn btn-primary float-sm-left mr-5"
-            ng-click="createMessage(); valideMsg(); resetForm()">
-        <input type="reset" value="Reset" class="btn btn-primary float-sm-left" />
-    </div>
-</div>
-</form>
+
+
+        <div class="form-group row">
+            <label for="prio" class="col-sm-2 col-form-label">Priority</label>
+            <div class="col-sm-10">
+                <select class="form-control" id="prio" ng-model="prio" required>
+                    <option value="1-Urgent">1-Important</option>
+                    <option value="2-Medium">2-Medium</option>
+                    <option value="3-Low" selected="selected">3-Low</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="file" class="col-sm-2 col-form-label">Upload File</label>
+            <div class="col-sm-10">
+                <input type="file" class="form-control" ng-model="file" accept="image/*" multiple>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <input type="button" value="Create" id="submit" class="btn btn-primary float-sm-left mr-5"
+                    ng-click="createMessage(); valideMsg(); resetForm()">
+                <input type="reset" value="Reset" class="btn btn-primary float-sm-left" />
+            </div>
+        </div>
+    </form>
 
 </div>

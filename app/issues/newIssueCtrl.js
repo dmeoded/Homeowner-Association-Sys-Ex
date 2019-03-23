@@ -4,7 +4,7 @@ app.controller("newIssueCtrl", function ($scope, $rootScope, msgSrv, $location, 
     $scope.createMessage = function () {
         $scope.msgType = "Issue";
         msgSrv.createMessage
-        ($scope.title, $scope.msgType,  $scope.desc, $scope.prio, $scope.file).then(function () {
+        ($scope.title, $scope.msgType,  $scope.desc, $scope.prio, $scope.file, $scope.issueStatus, $scope.issueDueDate).then(function () {
             $location.path("/messages");
             $scope.showNewMsg = false;
         }, function (err) {
