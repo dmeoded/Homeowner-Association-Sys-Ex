@@ -11,7 +11,7 @@ app.factory("userSrv", function ($http, $q, $log) {
         this.email = genUser.email;
         this.tel = genUser.tel;
         this.aptNo = genUser.aptNo;
-        this.flrNo = genUser.aptFlr;
+        this.flrNo = genUser.flrNo;
         this.tel = genUser.tel;
         this.isCommitteeMember = genUser.isCommitteeMember;
         this.isHomeOwner = genUser.isHomeOwner;

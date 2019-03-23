@@ -4,13 +4,13 @@ app.controller("tenantCtrl", function ($scope, $http, $location, $log, msgSrv, u
 
     if (!userSrv.isLoggedIn()) {
         $location.path("/");
-        return;
+        return;m
     }
 
 
     $scope.activeUser = userSrv.getActiveUser();
 
-    // Loading the messages
+    // Loading the users
     $scope.users = [];
     userSrv.getUsers().then(function (users) {
         $scope.users = users;
@@ -19,15 +19,13 @@ app.controller("tenantCtrl", function ($scope, $http, $location, $log, msgSrv, u
     })
 
 
-    // Filtering the messges by title and comment (presentation logic)
-    $scope.filterMsg = function (message) {
+    // Filtering the user by title and comment (presentation logic)
+    $scope.filterUsr = function (user) {
         if (!$scope.filterBy) {
             return true;
         } else if (
-            message.fullname.toLowerCase().includes($scope.filterBy.toLowerCase()) ||
-            message.eMail.toLowerCase().includes($scope.filterBy.toLowerCase()) ||
-            message.flrNo.toLowerCase().includes($scope.filterBy.toLowerCase()) ||
-            message.aptNo.toLowerCase().includes($scope.filterBy.toLowerCase())
+            user.fullName.toLowerCase().includes($scope.filterBy.toLowerCase()) ||
+            user.email.toLowerCase().includes($scope.filterBy.toLowerCase()) 
         ) {
             return true;
         } else {
@@ -50,24 +48,24 @@ app.controller("tenantCtrl", function ($scope, $http, $location, $log, msgSrv, u
         }
     }
 
-    // Selected Message (presentation logic)
-    $scope.selectedMsg = null;
-    $scope.selectMsg = function (message) {
-        if ($scope.selectedMsg === message) {
-            $scope.selectedMsg = null;
+    // Selected user (presentation logic)
+    $scope.selectedUsr = null;
+    $scope.selectUsr = function (user) {
+        if ($scope.selectedUsr === user) {
+            $scope.selectedUsr = null;
         } else {
-            $scope.selectedMsg = message;
+            $scope.selectedUsr = user;
         }
-        //   $log.info("The selected message is: " + $scope.selectedMsg.title);
+        //   $log.info("The selected user is: " + $scope.selectedUsr.title);
     }
 
-    $scope.showNewMsg = false;
-    $scope.addMsg = function () {
-        $scope.showNewMsg = true;
+    $scope.showNewUsr = false;
+    $scope.addUsr = function () {
+        $scope.showNewUsr = true;
     }
 
-    $scope.openMsg = function (message) {
-        $location.path("messages/" + $scope.messages.indexOf(message));
+    $scope.openUsr = function (user) {
+        $location.path("users/" + $scope.users.indexOf(user));
     }
 
 

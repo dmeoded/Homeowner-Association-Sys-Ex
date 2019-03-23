@@ -20,7 +20,6 @@ app.config(function ($routeProvider) {
         templateUrl: "app/tenants/tanents.html",
         controller: "tenantCtrl"
 
-
     }).when("/messages", {
         templateUrl: "app/messages/messages.html",
         controller: "messageCtrl"
