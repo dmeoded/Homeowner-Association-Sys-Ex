@@ -11,7 +11,8 @@ app.controller("newMessageCtrl", function ($scope, $rootScope, msgSrv, $location
         })
     };
 
-    $scope.inValidMessage = function () {
+    $scope.invalideMsg = false;
+    $scope.invalideMsg = function () {
        return $scope.title? true: false;
     };
 

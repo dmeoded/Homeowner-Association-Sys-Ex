@@ -8,13 +8,17 @@
             </div>
         </div>
 
-        <div class="alert alert-danger row" role="alert" ng-show="inValideMsg">
-            <strong>Title Cannot be Null!!!</strong> Please add title.
+        <!-- <div class="alert alert-danger row" role="alert" ng-show="invalideMsg">
+            <strong>Title Cannot be Null</strong> Please add title.
+        </div> -->
+
+        <div class="alert alert-danger row" role="alert" ng-show="invalideMsg">
+            <strong>Title Cannot be Null </strong>
         </div>
 
         <div class="form-group row">
             <div class="col-sm-10">
-                    <label for="msgType" class="col-sm-2 col-form-label">Message Type</label>
+                <label for="msgType" class="col-sm-2 col-form-label">Message Type</label>
                 <input type="text" class="form-control" id="msgType" name="msgType" ng-model="msgType" value="Message">
             </div>
         </div>
