@@ -7,6 +7,7 @@ app.controller("tenantCtrl", function ($scope, $http, $location, $log, msgSrv, u
         return;
     }
 
+
     // $scope.activeUser = userSrv.getActiveUser();
 
     // // Loading the messages

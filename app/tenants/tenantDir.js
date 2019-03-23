@@ -1,4 +1,4 @@
-app.directive("tenantList", function() {
+app.directive("tenantDir", function() {
     return {
         templateUrl: "app/tenants/tenants.html",
         restrcit: "E",
