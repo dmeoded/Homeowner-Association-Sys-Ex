@@ -82,7 +82,7 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
   }
 
 
-  function createMessage(title, msgType, desc, prio, file, msgType, issueStatus, issueDueDate) {
+  function createMessage(title, msgType, desc, prio, file, issueStatus, issueDueDate) {
     var async = $q.defer();
 
     var activeUser = userSrv.getActiveUser().fullName;
