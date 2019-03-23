@@ -6,6 +6,7 @@
         "pwd": "123",
         "aptNo": "13",
         "flr": "4",
+        "tel": "054-9100219",
         "isCommitteeMember": true,
         "communityId": "1"
     },
@@ -16,6 +17,7 @@
         "pwd": "123",
         "aptNo": "2",
         "flr": "1",
+        "tel": "052-9100211",
         "isCommitteeMember": false,
         "communityId": "1"
     },
@@ -26,6 +28,7 @@
         "pwd": "456",
         "aptNo": "2",
         "flr": "1",
+        "tel": "052-9300211",
         "isCommitteeMember": false,
         "communityId": "2"
     }
