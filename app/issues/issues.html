@@ -17,6 +17,15 @@
                     <i class="fas"
                         ng-class="{'fa-sort' : orderProp != 'prio', 'fa-sort-down' : orderProp === 'prio' && !reverseOrder, 'fa-sort-up' : orderProp === 'prio' && reverseOrder}"></i>
                 </th>
+                <th ng-click="orderByProp('issueStatus')">Status
+                    <i class="fas"
+                        ng-class="{'fa-sort' : orderProp != 'issueStatus', 'fa-sort-down' : orderProp === 'issueStatus' && !reverseOrder, 'fa-sort-up' : orderProp === 'issueStatus' && reverseOrder}"></i>
+                </th>
+                <th ng-click="orderByProp('issueDueDate')">Due Date
+                    <i class="fas"
+                        ng-class="{'fa-sort' : orderProp != 'issueDueDate', 'fa-sort-down' : orderProp === 'issueDueDate' && !reverseOrder, 'fa-sort-up' : orderProp === 'issueDueDate' && reverseOrder}"></i>
+                </th>
+            
                 <th ng-click="orderByProp('createdBy')">Created By
                     <i class="fas"
                         ng-class="{'fa-sort' : orderProp != 'createdBy', 'fa-sort-down' : orderProp === 'createdBy' && !reverseOrder, 'fa-sort-up' : orderProp === 'createdBy' && reverseOrder}"></i>
@@ -32,6 +41,8 @@
                 <td>{{$index + 1}}</td>
                 <td>{{message.title}}</td>
                 <td>{{message.prio}}</td>
+                <td>{{message.issueStatus}}</td>
+                <td>{{message.issueDueDate | date }}</td>
                 <td>{{message.createdBy}}</td>
                 <td>{{message.createdAt | date}}</td>
             </tr>
