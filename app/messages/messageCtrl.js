@@ -11,7 +11,8 @@ app.controller("messageCtrl", function ($scope, $http, $location, $log, msgSrv, 
 
     // Loading the messages
     $scope.messages = [];
-    msgSrv.getMsgs().then(function (messages) {
+    msgType = "Message"
+    msgSrv.getMsgs(msgType).then(function (messages) {
         $scope.messages = messages;
     }, function (err) {
         $log.error(err);

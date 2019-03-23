@@ -17,7 +17,7 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
     this.file = MsgObject.file
   }
 
-  function getMsgs() {
+  function getMsgs(msgType) {
     var async = $q.defer();
 
     if (wasEverLoaded) {
@@ -27,7 +27,10 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
       $http.get("app/model/data/messages.json").then(function (res) {
         // success
         for (var i = 0; i < res.data.length; i++) {
+          // messages.push(new Message(res.data[i]));
+          if (res.data[i].msgType === msgType) {
           messages.push(new Message(res.data[i]));
+          }
         }
         wasEverLoaded = true;
         async.resolve(messages); // resolving the promise with the messages array      
