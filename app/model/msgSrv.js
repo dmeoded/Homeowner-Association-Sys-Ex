@@ -2,6 +2,8 @@
 app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
 
   var messages = [];
+  var wasLoaded = null;
+
 
   // Message constructor
   function Message(MsgObject) {
@@ -20,11 +22,10 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
 
   function getMsgs(msgType) {
     var async = $q.defer();
-    var messages = [];
-
     console.log("msgType in msgSrv: ", msgType);
-
-    {
+    if (wasLoaded) {
+      async.resolve(messages);
+    } else {
       // Get all message from JSON - only for the first time
       $http.get("app/model/data/messages.json").then(function (res) {
         // success
@@ -40,21 +41,24 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
       }, function (err) {
         // error
         async.reject(err);  // rejecting the promise
+      
       });
+      wasLoaded = true; //Fake set to see if this is the casue for the problems with issues
+
     }
 
     return async.promise;
   }
 
 
-  function createMessage(title, msgType, desc, prio, file, issueStatus, issueDueDate) {
+  function createMessage(title, msgType, desc, prio, file, msgType, issueStatus, issueDueDate) {
     var async = $q.defer();
 
     var activeUser = userSrv.getActiveUser().fullName;
     var newMessageId = genSrv.makeId(8);  // the id should be unique
     var newMessageObject = {
       id: newMessageId,
-      msgType: "Message",
+      msgType: msgType,
       prio: prio,
       title: title,
       desc: desc,
@@ -83,6 +87,8 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
     // Making sure that the messages are loaded
     getMsgs().then(function (messages) {
       async.resolve(messages[id]);
+      console.log("Message in msgSrv getMsgById: ", messages[id]);
+
     }, function (err) {
       async.reject(err);
     });

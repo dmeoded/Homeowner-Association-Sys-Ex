@@ -67,7 +67,7 @@ app.controller("issueCtrl", function ($scope, $http, $location, $log, msgSrv, us
     }
 
     $scope.openMsg = function (message) {
-        $location.path("messages/" + $scope.messages.indexOf(message));
+        $location.path("issues/" + $scope.messages.indexOf(message));
     }
 
 

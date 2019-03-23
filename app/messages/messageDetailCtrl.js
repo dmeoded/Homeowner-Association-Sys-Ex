@@ -11,6 +11,8 @@ app.controller("messageDetailCtrl", function ($scope, $rootScope, msgSrv, userSr
 
   $scope.activeUser = userSrv.getActiveUser();
 
+  console.log("current message ID from Detail Ctrl:", $routeParams.msgId);
+
   msgSrv.getMsgById($routeParams.msgId).then(function (message) {
     $scope.message = message;
     console.log("current message from Detail Ctrl:", message);
