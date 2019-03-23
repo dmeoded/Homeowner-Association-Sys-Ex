@@ -2,7 +2,8 @@
 app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
 
   var messages = [];
-  var wasLoaded = null;
+  var wereMsgsLoaded = false;
+  var wereIssuesLoaded = false;
 
 
   // Message constructor
@@ -23,7 +24,7 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
   function getMsgs(msgType) {
     var async = $q.defer();
     console.log("msgType in msgSrv: ", msgType);
-    if (wasLoaded) {
+    if (wereMsgsLoaded) {
       async.resolve(messages);
     } else {
       // Get all message from JSON - only for the first time
@@ -31,7 +32,7 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
         // success
         for (var i = 0; i < res.data.length; i++) {
           // messages.push(new Message(res.data[i]));
-          console.log("msgType in msgSrv Loop: ", res.data[i].msgType);
+          console.log("msgType in msgSrv Loop in getMsgs: ", res.data[i].msgType);
 
           if (res.data[i].msgType === msgType) {
             messages.push(new Message(res.data[i]));
@@ -43,7 +44,37 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
         async.reject(err);  // rejecting the promise
       
       });
-      wasLoaded = true; //Fake set to see if this is the casue for the problems with issues
+      wereMsgsLoaded = true; //Fake set to see if this is the casue for the problems with issues
+
+    }
+
+    return async.promise;
+  }
+
+  function getIssues(msgType) {
+    var async = $q.defer();
+    console.log("msgType in msgSrv: ", msgType);
+    if (wereIssuesLoaded) {
+      async.resolve(messages);
+    } else {
+      // Get all message from JSON - only for the first time
+      $http.get("app/model/data/messages.json").then(function (res) {
+        // success
+        for (var i = 0; i < res.data.length; i++) {
+          // messages.push(new Message(res.data[i]));
+          console.log("msgType in msgSrv Loop in getIssues: ", res.data[i].msgType);
+
+          if (res.data[i].msgType === msgType) {
+            messages.push(new Message(res.data[i]));
+          }
+        }
+        async.resolve(messages); // resolving the promise with the messages array      
+      }, function (err) {
+        // error
+        async.reject(err);  // rejecting the promise
+      
+      });
+      wereIssuesLoaded = true; //Fake set to see if this is the casue for the problems with issues
 
     }
 
@@ -99,6 +130,7 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
 
   return {
     getMsgs: getMsgs,
+    getIssues: getIssues,
     createMessage: createMessage,
     updateMessage: updateMessage,
     getMsgById: getMsgById

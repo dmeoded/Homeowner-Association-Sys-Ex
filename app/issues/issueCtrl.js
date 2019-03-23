@@ -12,7 +12,7 @@ app.controller("issueCtrl", function ($scope, $http, $location, $log, msgSrv, us
     // Loading the messages
     $scope.messages = [];
     msgType = "Issue"
-    msgSrv.getMsgs(msgType).then(function (messages) {
+    msgSrv.getIssues(msgType).then(function (messages) {
         $scope.messages = messages;
     }, function (err) {
         $log.error(err);
