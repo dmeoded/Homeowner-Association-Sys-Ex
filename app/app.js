@@ -37,9 +37,9 @@ app.config(function ($routeProvider) {
         templateUrl: "app/messages/messageDetail.html",
         controller: "messageDetailCtrl"
 
-    // }).when("/issues/:msgId", {
-    //     templateUrl: "app/issues/issueDetail.html",
-    //     controller: "issueDetailCtrl"
+    }).when("/issues/:msgId", {
+        templateUrl: "app/issues/issueDetail.html",
+        controller: "issueDetailCtrl"
 
     }).otherwise({
         redirectTo: "/"
