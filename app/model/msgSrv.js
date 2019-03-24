@@ -46,7 +46,7 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
         async.reject(err);  // rejecting the promise
       
       });
-      wereMsgsLoaded = true; //Fake set to see if this is the casue for the problems with issues
+      wereMsgsLoaded = true; 
 
     }
 
@@ -57,26 +57,25 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
     var async = $q.defer();
     console.log("msgType in msgSrv: ", msgType);
     if (wereIssuesLoaded) {
-      async.resolve(messages);
+      async.resolve(issues);
     } else {
       // Get all message from JSON - only for the first time
       $http.get("app/model/data/messages.json").then(function (res) {
         // success
         for (var i = 0; i < res.data.length; i++) {
-          // messages.push(new Message(res.data[i]));
           console.log("msgType in msgSrv Loop in getIssues: ", res.data[i].msgType);
 
           if (res.data[i].msgType === msgType) {
-            messages.push(new Message(res.data[i]));
+            issues.push(new Message(res.data[i]));
           }
         }
-        async.resolve(messages); // resolving the promise with the messages array      
+        async.resolve(issues); // resolving the promise with the messages array      
       }, function (err) {
         // error
         async.reject(err);  // rejecting the promise
       
       });
-      wereIssuesLoaded = true; //Fake set to see if this is the casue for the problems with issues
+      wereIssuesLoaded = true; 
 
     }
 
@@ -84,7 +83,7 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
   }
 
 
-  function createMessage(title, msgType, desc, prio, file, issueStatus, issueDueDate) {
+  function createMessage(title, msgType, desc, prio, file) {
     var async = $q.defer();
 
     var activeUser = userSrv.getActiveUser().fullName;
@@ -107,7 +106,32 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
 
     return async.promise;
   }
+  
+  function createIssue(title, msgType, desc, prio, file, issueStatus, issueDueDate) {
+    var async = $q.defer();
 
+    var activeUser = userSrv.getActiveUser().fullName;
+    var newMessageId = genSrv.makeId(8);  // the id should be unique
+    var newMessageObject = {
+      id: newMessageId,
+      msgType: msgType,
+      prio: prio,
+      title: title,
+      desc: desc,
+      file: file,
+      createdAt: new Date().getTime(),
+      createdBy: activeUser,
+      issueStatus: issueStatus,
+      issueDueDate: issueDueDate
+    }
+    var newMessage = new Message(newMessageObject);
+    issues.push(newMessage);
+    console.log("createIssue in msgSrv: ", newMessage);
+
+    async.resolve(newMessage, issues[activeUser]);
+
+    return async.promise;
+  }
 
   function updateMessage(id, ncomment) {
 
@@ -129,13 +153,31 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
     return async.promise;
   }
 
+  
+  function getIssueById(id) {
+    var async = $q.defer();
+
+    // Making sure that the issues are loaded
+    getIssues().then(function (issues) {
+      async.resolve(issues[id]);
+      console.log("Issue in msgSrv getIssueById: ", issues[id]);
+
+    }, function (err) {
+      async.reject(err);
+    });
+
+    return async.promise;
+  }
 
   return {
     getMsgs: getMsgs,
     getIssues: getIssues,
     createMessage: createMessage,
+    createIssue: createIssue,
     updateMessage: updateMessage,
-    getMsgById: getMsgById
+    getMsgById: getMsgById,
+    getIssueById: getIssueById
+
   }
 
 });

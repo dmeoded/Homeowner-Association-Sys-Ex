@@ -13,9 +13,9 @@ app.controller("issueDetailCtrl", function ($scope, $rootScope, msgSrv, userSrv,
   
     console.log("current issue ID from Detail Ctrl:", $routeParams.msgId);
   
-    msgSrv.getMsgById($routeParams.msgId).then(function (message) {
-      $scope.message = message;
-      console.log("current issue from Detail Ctrl:", message);
+    msgSrv.getIssueById($routeParams.msgId).then(function (issue) {
+      $scope.message = issue;
+      console.log("current issue from Detail Ctrl:", issue);
     })
   
     $scope.showUpdMsg = false;

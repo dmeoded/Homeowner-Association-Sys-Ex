@@ -1,11 +1,11 @@
 
 app.controller("newIssueCtrl", function ($scope, $rootScope, msgSrv, $location, $log) {
 
-    $scope.createMessage = function () {
+    $scope.createIssue = function () {
         $scope.msgType = "Issue";
-        msgSrv.createMessage
+        msgSrv.createIssue
         ($scope.title, $scope.msgType,  $scope.desc, $scope.prio, $scope.file, $scope.issueStatus, $scope.issueDueDate).then(function () {
-            $location.path("/messages");
+            $location.path("/issues");
             $scope.showNewMsg = false;
         }, function (err) {
             $log.error(err);
