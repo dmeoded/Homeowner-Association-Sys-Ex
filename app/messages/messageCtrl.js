@@ -36,8 +36,8 @@ app.controller("messageCtrl", function ($scope, $http, $location, $log, msgSrv, 
     }
 
     // Order logic (presentation logic)
-    $scope.orderProp = "";
-    $scope.reverseOrder = false;
+    $scope.orderProp = "createdAt";
+    $scope.reverseOrder = true;
     $scope.orderByProp = function (propName) {
 
         if ($scope.orderProp === propName) {
