@@ -2,6 +2,7 @@
 app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
 
   var messages = [];
+  var issues = [];
   var wereMsgsLoaded = false;
   var wereIssuesLoaded = false;
 

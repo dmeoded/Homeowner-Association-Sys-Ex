@@ -2,7 +2,7 @@ app.controller("updateMessageCtrl", function ($scope, $rootScope, msgSrv, userSr
 
     $scope.updateMessage = function () {
         $scope.message.comment =
-            (!$scope.message.comment ? " " : $scope.message.comment + "<br />") + userSrv.getActiveUser().fullName 
+            (!$scope.message.comment ? " " : $scope.message.comment + "</br>") + userSrv.getActiveUser().fullName 
             + " created at " + (new Date().getTime("YYYY-MM-DD HH:MM:SS")) + ": " + $scope.ncomment;
 
             // dateFormat(today, "YYYY-MM-DD HH:MM:SS");

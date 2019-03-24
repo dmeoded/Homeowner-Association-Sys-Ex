@@ -12,11 +12,11 @@ app.controller("newMessageCtrl", function ($scope, $rootScope, msgSrv, $location
         })
     };
 
-    $scope.invalideMsg = false;
     $scope.invalideMsg = function () {
-       return $scope.title? true: false;
+       return $scope.title? false: true;
     };
 
+    $scope.prio = "2-Info";
 
     $scope.resetForm = function () {
         $scope.title = null;
