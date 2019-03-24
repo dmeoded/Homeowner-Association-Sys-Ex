@@ -5,7 +5,6 @@ app.controller("loginCtrl", function ($scope, $http, $location, $log, msgSrv, us
     $scope.pwd = "123";
 
     $scope.login = function () {
-
         userSrv.login($scope.email, $scope.pwd).then(function (activeUser) {
             $location.path("/dashboard");
         }, function () {

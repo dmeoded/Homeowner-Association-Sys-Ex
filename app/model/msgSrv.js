@@ -96,9 +96,7 @@ app.factory("msgSrv", function ($log, $http, $q, genSrv, userSrv) {
       desc: desc,
       file: file,
       createdAt: new Date().getTime(),
-      createdBy: activeUser,
-      issueStatus: issueStatus,
-      issueDueDate: issueDueDate
+      createdBy: activeUser
     }
     var newMessage = new Message(newMessageObject);
     messages.push(newMessage);
