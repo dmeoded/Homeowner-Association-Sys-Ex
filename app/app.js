@@ -28,8 +28,8 @@ app.config(function ($routeProvider) {
         templateUrl: "app/issues/issues.html",
         controller: "issueCtrl"
 
-    }).when("/voting", {
-        templateUrl: "app/voting/voting.html"
+    }).when("/votes", {
+        templateUrl: "app/votes/votes.html"
 
     }).when("/newTenant", {
         templateUrl: "app/tenants/newTenant.html"
