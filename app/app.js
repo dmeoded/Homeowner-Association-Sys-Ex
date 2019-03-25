@@ -31,8 +31,8 @@ app.config(function ($routeProvider) {
     }).when("/votes", {
         templateUrl: "app/votes/votes.html"
 
-    }).when("/newTenant", {
-        templateUrl: "app/tenants/newTenant.html"
+    // }).when("/newTenant", {
+    //     templateUrl: "app/tenants/newTenant.html"
 
     }).when("/messages/:msgId", {
         templateUrl: "app/messages/messageDetail.html",
@@ -42,10 +42,11 @@ app.config(function ($routeProvider) {
         templateUrl: "app/issues/issueDetail.html",
         controller: "issueDetailCtrl"
 
-    }).when("/tenants/:usrId", {
-        // templateUrl: "app/tenants/tenantDetail.html",
-        templateUrl: "app/tenants/tenants.html",
+    // }).when("/tenants/:usrId", {
+    }).when("/tenants/:0", {
 
+        templateUrl: "app/tenants/tenantDetail.html",
+        // templateUrl: "app/tenants/tenants.html",
         controller: "tenantDetailCtrl"
 
     }).otherwise({

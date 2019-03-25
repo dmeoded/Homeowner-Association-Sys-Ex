@@ -4,9 +4,8 @@ app.controller("tenantCtrl", function ($scope, $http, $location, $log, msgSrv, u
 
     if (!userSrv.isLoggedIn()) {
         $location.path("/");
-        return;m
+        return;
     }
-
 
     $scope.activeUser = userSrv.getActiveUser();
 
@@ -65,6 +64,7 @@ app.controller("tenantCtrl", function ($scope, $http, $location, $log, msgSrv, u
     }
 
     $scope.openUsr = function (user) {
+        console.log("In openUsr", user);
         $location.path("users/" + $scope.users.indexOf(user));
     }
 
