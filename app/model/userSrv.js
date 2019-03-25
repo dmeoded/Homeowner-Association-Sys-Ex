@@ -77,15 +77,29 @@ app.factory("userSrv", function ($http, $q, $log) {
                     users.push(new User(res.data[i]));
                 }
                 console.log("In getUsers - users array: ", users);
-                async.resolve(users); // resolving the promise with the messages array      
+                async.resolve(users); // resolving the promise with the users array      
             }, function (err) {
                 // error
                 async.reject(err);  // rejecting the promise
 
             });
-            wereLoaded = true; //Fake set to see if this is the casue for the problems with issues
-
+            wereLoaded = true;
         }
+
+        return async.promise;
+    }
+
+    function getUsrById(id) {
+        var async = $q.defer();
+
+        // Making sure that the issues are loaded
+        getUsers().then(function (users) {
+            async.resolve(issues[id]);
+            console.log("User in usrSrv getUsrById: ", users[id]);
+
+        }, function (err) {
+            async.reject(err);
+        });
 
         return async.promise;
     }
@@ -94,12 +108,14 @@ app.factory("userSrv", function ($http, $q, $log) {
     //     return activeUser.fullName;
     // }
 
+
     return {
         login: login,
         isLoggedIn: isLoggedIn,
         logout: logout,
         getActiveUser: getActiveUser,
         getUsers: getUsers,
+        getUsrById: getUsrById,
         // getUserFullName: getUserFullName,
         isCommitteeUser: isCommitteeUser
     }
