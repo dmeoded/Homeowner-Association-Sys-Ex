@@ -42,11 +42,8 @@ app.config(function ($routeProvider) {
         templateUrl: "app/issues/issueDetail.html",
         controller: "issueDetailCtrl"
 
-    // }).when("/tenants/:usrId", {
-    }).when("/tenants/:0", {
-
+    }).when("/tenants/:usrId", {
         templateUrl: "app/tenants/tenantDetail.html",
-        // templateUrl: "app/tenants/tenants.html",
         controller: "tenantDetailCtrl"
 
     }).otherwise({

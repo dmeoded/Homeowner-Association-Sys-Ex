@@ -5,17 +5,6 @@ app.controller("newMessageCtrl", function ($scope, $rootScope, msgSrv, $location
     $scope.msgType = "Message";
     $scope.invalideMsg = false;
 
-    // $scope.createMessage = function () {
-    //     $scope.msgType = "Message";
-    //     msgSrv.createMessage
-    //         ($scope.title, $scope.msgType, $scope.desc, $scope.prio, $scope.file).then(function () {
-    //             $location.path("/messages");
-    //             $scope.showNewMsg = false;
-    //         }, function (err) {
-    //             $log.error(err);
-    //         })
-    // };
-
     $scope.createMessage = function () {
 
         if (!$scope.title) {

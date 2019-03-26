@@ -1,5 +1,5 @@
 
-app.controller("userDetailCtrl", function ($scope, $rootScope, UsrSrv, userSrv, $routeParams, $location) {
+app.controller("tenantDetailCtrl", function ($scope, $rootScope, userSrv, $routeParams, $location) {
 
     app.run(function ($rootScope) {
       $rootScope.user = user;
@@ -14,7 +14,7 @@ app.controller("userDetailCtrl", function ($scope, $rootScope, UsrSrv, userSrv, 
   
     console.log("current user ID from Detail Ctrl:", $routeParams.UsrId);
   
-    UsrSrv.getUsrById($routeParams.usrId).then(function (user) {
+    userSrv.getUsrById($routeParams.usrId).then(function (user) {
       $scope.user = user;
       console.log("current user from Detail Ctrl:", user);
     })

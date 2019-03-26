@@ -64,8 +64,9 @@ app.controller("tenantCtrl", function ($scope, $http, $location, $log, msgSrv, u
     }
 
     $scope.openUsr = function (user) {
-        console.log("In openUsr", user);
-        $location.path("users/" + $scope.users.indexOf(user));
+        $location.path("tenants/" + $scope.users.indexOf(user));
+        console.log("In openUsr", user,   $scope.users.indexOf(user));
+
     }
 
 

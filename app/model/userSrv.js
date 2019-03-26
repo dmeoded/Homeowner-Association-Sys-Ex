@@ -94,8 +94,8 @@ app.factory("userSrv", function ($http, $q, $log) {
 
         // Making sure that the issues are loaded
         getUsers().then(function (users) {
-            async.resolve(issues[id]);
-            console.log("User in usrSrv getUsrById: ", users[id]);
+            async.resolve(users[id]);
+            console.log("User in userSrv getUsrById: ", users[id]);
 
         }, function (err) {
             async.reject(err);
